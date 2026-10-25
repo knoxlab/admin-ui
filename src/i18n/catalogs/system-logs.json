@@ -1,0 +1,275 @@
+{
+  "系统日志": {
+    "en": "System Logs",
+    "ja": "システムログ",
+    "ko": "시스템 로그",
+    "fr": "Journaux système",
+    "es": "Registros del sistema"
+  },
+  "运行日志与访问日志双轨查询：时间窗、级别/结果分类、来源模块、关键词与 traceId 关联检索；导出仅系统管理员可用。": {
+    "en": "Dual-track query for runtime and access logs: time window, level/outcome, source module, keyword and traceId correlation; export is limited to system administrators.",
+    "ja": "実行ログとアクセスログの二系統照会：時間範囲、レベル/結果分類、送信元モジュール、キーワードと traceId の関連検索。エクスポートはシステム管理者のみ利用可能です。",
+    "ko": "런타임 로그와 접근 로그 이중 조회: 시간 범위, 수준/결과 분류, 소스 모듈, 키워드 및 traceId 연관 검색. 내보내기는 시스템 관리자만 사용할 수 있습니다.",
+    "fr": "Requête à double voie pour les journaux d'exécution et d'accès : fenêtre temporelle, niveau/résultat, module source, mot-clé et corrélation par traceId ; l'export est réservé aux administrateurs système.",
+    "es": "Consulta de doble vía para registros de ejecución y de acceso: ventana temporal, nivel/resultado, módulo de origen, palabra clave y correlación por traceId; la exportación está limitada a los administradores del sistema."
+  },
+  "运行日志": {
+    "en": "Runtime Logs",
+    "ja": "実行ログ",
+    "ko": "런타임 로그",
+    "fr": "Journaux d'exécution",
+    "es": "Registros de ejecución"
+  },
+  "访问日志": {
+    "en": "Access Logs",
+    "ja": "アクセスログ",
+    "ko": "접근 로그",
+    "fr": "Journaux d'accès",
+    "es": "Registros de acceso"
+  },
+  "日志总数": {
+    "en": "Total entries",
+    "ja": "ログ総数",
+    "ko": "로그 총수",
+    "fr": "Nombre total d'entrées",
+    "es": "Total de entradas"
+  },
+  "小时分布": {
+    "en": "Hourly distribution",
+    "ja": "時間別分布",
+    "ko": "시간별 분포",
+    "fr": "Distribution horaire",
+    "es": "Distribución por hora"
+  },
+  "级别分布": {
+    "en": "Level distribution",
+    "ja": "レベル別分布",
+    "ko": "수준별 분포",
+    "fr": "Distribution par niveau",
+    "es": "Distribución por nivel"
+  },
+  "级别": {
+    "en": "Level",
+    "ja": "レベル",
+    "ko": "수준",
+    "fr": "Niveau",
+    "es": "Nivel"
+  },
+  "来源模块": {
+    "en": "Source module",
+    "ja": "送信元モジュール",
+    "ko": "소스 모듈",
+    "fr": "Module source",
+    "es": "Módulo de origen"
+  },
+  "结果分类": {
+    "en": "Outcome",
+    "ja": "結果分類",
+    "ko": "결과 분류",
+    "fr": "Classification du résultat",
+    "es": "Clasificación del resultado"
+  },
+  "最近 1 小时": {
+    "en": "Last 1 hour",
+    "ja": "過去 1 時間",
+    "ko": "최근 1시간",
+    "fr": "Dernière heure",
+    "es": "Última hora"
+  },
+  "最近 24 小时": {
+    "en": "Last 24 hours",
+    "ja": "過去 24 時間",
+    "ko": "최근 24시간",
+    "fr": "Dernières 24 heures",
+    "es": "Últimas 24 horas"
+  },
+  "最近 7 天": {
+    "en": "Last 7 days",
+    "ja": "過去 7 日間",
+    "ko": "최근 7일",
+    "fr": "Derniers 7 jours",
+    "es": "Últimos 7 días"
+  },
+  "最近 30 天": {
+    "en": "Last 30 days",
+    "ja": "過去 30 日間",
+    "ko": "최근 30일",
+    "fr": "Derniers 30 jours",
+    "es": "Últimos 30 días"
+  },
+  "关键词": {
+    "en": "Keyword",
+    "ja": "キーワード",
+    "ko": "키워드",
+    "fr": "Mot-clé",
+    "es": "Palabra clave"
+  },
+  "时间": {
+    "en": "Time",
+    "ja": "時刻",
+    "ko": "시간",
+    "fr": "Heure",
+    "es": "Hora"
+  },
+  "消息": {
+    "en": "Message",
+    "ja": "メッセージ",
+    "ko": "메시지",
+    "fr": "Message",
+    "es": "Mensaje"
+  },
+  "方法": {
+    "en": "Method",
+    "ja": "メソッド",
+    "ko": "메서드",
+    "fr": "Méthode",
+    "es": "Método"
+  },
+  "路径": {
+    "en": "Path",
+    "ja": "パス",
+    "ko": "경로",
+    "fr": "Chemin",
+    "es": "Ruta"
+  },
+  "状态码": {
+    "en": "Status",
+    "ja": "ステータス",
+    "ko": "상태 코드",
+    "fr": "Code d'état",
+    "es": "Código de estado"
+  },
+  "耗时(ms)": {
+    "en": "Duration (ms)",
+    "ja": "所要時間 (ms)",
+    "ko": "소요 시간(ms)",
+    "fr": "Durée (ms)",
+    "es": "Duración (ms)"
+  },
+  "来源 IP": {
+    "en": "Source IP",
+    "ja": "送信元 IP",
+    "ko": "소스 IP",
+    "fr": "IP source",
+    "es": "IP de origen"
+  },
+  "身份": {
+    "en": "Identity",
+    "ja": "識別情報",
+    "ko": "신원",
+    "fr": "Identité",
+    "es": "Identidad"
+  },
+  "服务": {
+    "en": "Service",
+    "ja": "サービス",
+    "ko": "서비스",
+    "fr": "Service",
+    "es": "Servicio"
+  },
+  "节点": {
+    "en": "Node",
+    "ja": "ノード",
+    "ko": "노드",
+    "fr": "Nœud",
+    "es": "Nodo"
+  },
+  "线程": {
+    "en": "Thread",
+    "ja": "スレッド",
+    "ko": "스레드",
+    "fr": "Thread",
+    "es": "Hilo"
+  },
+  "站点": {
+    "en": "Site",
+    "ja": "サイト",
+    "ko": "사이트",
+    "fr": "Site",
+    "es": "Sitio"
+  },
+  "响应字节": {
+    "en": "Response bytes",
+    "ja": "レスポンスバイト数",
+    "ko": "응답 바이트",
+    "fr": "Octets de réponse",
+    "es": "Bytes de respuesta"
+  },
+  "日志详情": {
+    "en": "Log detail",
+    "ja": "ログ詳細",
+    "ko": "로그 상세",
+    "fr": "Détail du journal",
+    "es": "Detalle del registro"
+  },
+  "刷新": {
+    "en": "Refresh",
+    "ja": "更新",
+    "ko": "새로 고침",
+    "fr": "Rafraîchir",
+    "es": "Actualizar"
+  },
+  "自动刷新": {
+    "en": "Auto refresh",
+    "ja": "自動更新",
+    "ko": "자동 새로 고침",
+    "fr": "Rafraîchissement auto",
+    "es": "Actualización automática"
+  },
+  "导出": {
+    "en": "Export",
+    "ja": "エクスポート",
+    "ko": "내보내기",
+    "fr": "Exporter",
+    "es": "Exportar"
+  },
+  "导出（一次性链接，30 分钟有效）": {
+    "en": "Export (one-time link, valid for 30 minutes)",
+    "ja": "エクスポート（ワンタイムリンク、30 分間有効）",
+    "ko": "내보내기(일회성 링크, 30분 유효)",
+    "fr": "Export (lien à usage unique, valable 30 minutes)",
+    "es": "Exportar (enlace de un solo uso, válido 30 minutos)"
+  },
+  "加载更多": {
+    "en": "Load more",
+    "ja": "さらに読み込む",
+    "ko": "더 불러오기",
+    "fr": "Charger plus",
+    "es": "Cargar más"
+  },
+  "没有更多了": {
+    "en": "No more entries",
+    "ja": "これ以上ありません",
+    "ko": "더 이상 없습니다",
+    "fr": "Aucune autre entrée",
+    "es": "No hay más entradas"
+  },
+  "没有权限查看系统日志": {
+    "en": "No permission to view system logs",
+    "ja": "システムログを表示する権限がありません",
+    "ko": "시스템 로그를 볼 권한이 없습니다",
+    "fr": "Aucune autorisation pour consulter les journaux système",
+    "es": "Sin permiso para ver los registros del sistema"
+  },
+  "已截断，原始": {
+    "en": "Truncated, original",
+    "ja": "切り捨て済み、元の",
+    "ko": "잘림, 원본",
+    "fr": "Tronqué, original",
+    "es": "Truncado, original"
+  },
+  "字节": {
+    "en": "bytes",
+    "ja": "バイト",
+    "ko": "바이트",
+    "fr": "octets",
+    "es": "bytes"
+  },
+  "页": {
+    "en": "page",
+    "ja": "ページ",
+    "ko": "페이지",
+    "fr": "page",
+    "es": "página"
+  }
+}

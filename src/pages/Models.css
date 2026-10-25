@@ -1,0 +1,682 @@
+/* 内容模型设计器：默认最大化全屏 */
+.model-designer-modal-wrap {
+  overflow: hidden;
+}
+
+.model-designer-modal-wrap .ant-modal {
+  top: 0 !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.model-designer-modal-wrap .ant-modal-content {
+  border-radius: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+}
+
+.model-designer-modal-wrap .ant-modal-header {
+  flex-shrink: 0;
+  margin-bottom: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.model-designer-modal-wrap .ant-modal-body {
+  flex: 1;
+  min-height: 0;
+  /* 模型属性展开后内容可能超出视口，允许对话框纵向滚动 */
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px 16px;
+  max-height: none !important;
+}
+
+.model-designer-shell {
+  /* 至少占满 body；chrome 变高时整体增高，由 body 滚动露出下方设计区 */
+  flex: 1 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-designer-chrome {
+  flex-shrink: 0;
+}
+
+.model-designer-main-tabs.ant-tabs {
+  flex: 1 1 auto;
+  /* 属性面板展开时仍保留可用高度，滚动后可见完整设计面板 */
+  min-height: min(60vh, 640px);
+  display: flex;
+  flex-direction: column;
+}
+
+.model-designer-main-tabs > .ant-tabs-nav {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.model-designer-main-tabs > .ant-tabs-content-holder {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-designer-main-tabs .ant-tabs-content {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.model-designer-main-tabs .ant-tabs-tabpane {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.model-designer-main-tabs .ant-tabs-tabpane-active:has(.model-designer-grid) {
+  overflow: hidden;
+}
+
+.model-designer-dnd {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+.model-designer-grid {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(210px, 280px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.model-palette-panel.ant-card,
+.model-canvas-panel.ant-card {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-palette-panel > .ant-card-head,
+.model-canvas-panel > .ant-card-head {
+  flex-shrink: 0;
+}
+
+.model-palette-panel > .ant-card-body,
+.model-canvas-panel > .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 1279px) {
+  .model-designer-grid {
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .model-palette-panel.ant-card {
+    height: auto;
+    max-height: 40vh;
+  }
+
+  .model-canvas-panel.ant-card {
+    height: auto;
+    min-height: 52vh;
+  }
+}
+
+.model-palette-card {
+  padding: 8px 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: #fff;
+  cursor: grab;
+}
+
+.model-palette-card.dragging {
+  opacity: 0.55;
+}
+
+.model-field-card {
+  border-radius: 6px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+}
+
+.model-field-card.selected {
+  border-color: #1677ff;
+  background: #e6f4ff;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.12);
+}
+
+.model-field-card.error {
+  border-color: #ff4d4f;
+}
+
+.model-field-card.dragging {
+  opacity: 0.45;
+}
+
+.model-drop-canvas {
+  min-height: 280px;
+  padding: 12px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.model-drop-canvas.over {
+  border: 2px solid #1677ff;
+  background: #f0f7ff;
+}
+
+.model-canvas-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.model-canvas-row.over {
+  outline: 2px dashed #1677ff;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.model-canvas-cell {
+  position: relative;
+  min-height: 92px;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px;
+}
+
+.model-cell-delete-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 1;
+}
+
+.model-canvas-cell.over {
+  border-color: #1677ff;
+  background: #e6f4ff;
+}
+
+/* 单元格内嵌结构块（页签组/分隔线，2026-09-22） */
+.model-canvas-cell-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.model-nested-block {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+  padding: 6px;
+}
+
+.model-nested-block .model-row-shell {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.model-nested-block .model-canvas-row {
+  min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+.model-nested-block .model-canvas-cell {
+  min-height: 64px;
+}
+
+.model-chip-slot {
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.model-chip-slot.over {
+  background: rgba(22, 119, 255, 0.12);
+}
+
+.model-cell-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: #fff;
+  padding: 6px 8px;
+}
+
+.model-cell-item.selected {
+  border-color: #1677ff;
+  background: #e6f4ff;
+}
+
+.model-cell-item.dragging {
+  opacity: 0.55;
+}
+
+.model-cell-item-handle {
+  cursor: grab;
+  color: #8c8c8c;
+}
+
+.model-cell-item-icon {
+  color: #1677ff;
+  display: inline-flex;
+}
+
+.model-cell-item-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.model-bottom-actions {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px 0 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.model-row-shell {
+  position: relative;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px 12px 12px;
+}
+
+.model-row-shell.dragging {
+  opacity: 0.65;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.model-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 28px;
+  padding: 2px 28px 8px;
+  border-bottom: 1px solid #f5f5f5;
+  margin-bottom: 8px;
+}
+
+.model-row-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: grab;
+  color: #8c8c8c;
+  flex-shrink: 0;
+}
+
+.model-row-drag-handle-static {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.model-row-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #262626;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.model-row-delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+}
+
+.model-block-anchor {
+  width: 100%;
+}
+
+/* dotCMS 风格页签分隔条：页签标题 + 动作按钮 + 全宽下边线，行平铺在分隔条下方 */
+.model-tab-divider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.model-tab-divider-section {
+  position: relative;
+}
+
+.model-tab-divider {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  padding: 0 2px;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 8px;
+}
+
+.model-tab-divider-title {
+  min-width: 96px;
+  max-width: 220px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  flex: 0 1 auto;
+  padding: 0 8px !important;
+}
+
+.model-tab-divider-actions {
+  margin-left: auto;
+  background: #fff;
+}
+
+.model-tab-divider-collapsed .model-tab-divider-title {
+  color: #8c8c8c;
+}
+
+.model-tab-divider-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 0 8px;
+}
+
+
+.model-add-split-btn {
+  display: inline-flex !important;
+  width: auto !important;
+}
+
+.model-add-split-btn.ant-space-compact-block {
+  display: inline-flex !important;
+  width: auto !important;
+}
+
+.model-add-split-btn.ant-btn-group > .ant-btn-primary:first-child,
+.model-add-split-btn > .ant-btn-primary:first-child {
+  min-width: 108px;
+}
+
+.model-row-layout-picker {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.model-row-layout-option {
+  flex: 1 1 0;
+  min-width: 112px;
+  max-width: 128px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: #e8eaf0;
+  padding: 12px 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.model-row-layout-option:hover {
+  border-color: #91caff;
+}
+
+.model-row-layout-option-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #434343;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.model-row-layout-option-bars {
+  display: grid;
+  gap: 6px;
+  align-items: stretch;
+  min-height: 52px;
+}
+
+.model-row-layout-bar {
+  display: block;
+  background: #2c333f;
+  border-radius: 3px;
+  min-height: 48px;
+}
+
+/* 设计画布 · 分隔线块（LINE_DIVIDER 结构控件的可视化形态） */
+.model-canvas-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 2px dashed #bfbfbf;
+  padding-top: 4px;
+  min-height: 32px;
+}
+
+.model-canvas-divider-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #8c8c8c;
+  background: #fff;
+  padding-right: 4px;
+  transform: translateY(-9px);
+}
+
+.model-canvas-divider-delete {
+  margin-left: auto;
+  transform: translateY(-9px);
+}
+
+/* 字段属性检查器：宽而矮 */
+.model-inspector-modal .ant-modal-body {
+  padding-top: 12px;
+  padding-bottom: 8px;
+  max-height: min(68vh, 560px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.model-inspector-modal .ant-modal-content {
+  overflow-x: hidden;
+}
+
+.model-inspector-body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.model-inspector-form {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.model-inspector-form .ant-row {
+  margin-inline: 0 !important;
+}
+
+.model-inspector-form .ant-col {
+  min-width: 0;
+}
+
+.model-inspector-form .ant-form-item {
+  margin-bottom: 10px;
+}
+
+.model-inspector-form .ant-form-item-explain,
+.model-inspector-form .ant-form-item-extra {
+  min-height: 0;
+  font-size: 12px;
+}
+
+.model-inspector-form .ant-space-compact,
+.model-inspector-form .ant-input-affix-wrapper,
+.model-inspector-form .ant-select,
+.model-inspector-form .ant-input-number {
+  max-width: 100%;
+}
+
+.model-inspector-section {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.model-inspector-section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #595959;
+  margin-bottom: 8px;
+}
+
+.model-inspector-flags {
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+  width: 100%;
+  max-width: 100%;
+}
+
+.model-repeat-children {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.model-repeat-child-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.model-repeat-child-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.model-preview-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.model-preview-section .ant-card-body {
+  padding-top: 12px;
+}
+
+.model-preview-repeat {
+  margin-bottom: 8px;
+}
+
+.model-preview-repeat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.model-preview-repeat-item {
+  padding: 10px 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.model-preview-repeat-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.model-preview-component {
+  margin-bottom: 8px;
+}
+
+.model-preview-component > .ant-collapse-item {
+  border-color: #d3adf7;
+  background: #fcfaff;
+}
+
+.model-preview-component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.model-preview-component-item {
+  padding: 10px 12px;
+  border: 1px solid #efdbff;
+  border-radius: 6px;
+  background: #f9f0ff;
+}
+
+.model-preview-component-item.is-collapsed {
+  background: #f5f5f5;
+  border-color: #e8e8e8;
+}
+
+.model-preview-component-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.model-preview-component-item-body {
+  margin-top: 8px;
+}
+
+.model-preview-component-item-title:hover {
+  color: #722ed1;
+}

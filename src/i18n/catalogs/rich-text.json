@@ -1,0 +1,303 @@
+{
+  "加粗": {
+    "en": "Bold",
+    "ja": "太字",
+    "ko": "굵게",
+    "fr": "Gras",
+    "es": "Negrita"
+  },
+  "斜体": {
+    "en": "Italic",
+    "ja": "斜体",
+    "ko": "기울임꼴",
+    "fr": "Italique",
+    "es": "Cursiva"
+  },
+  "下划线": {
+    "en": "Underline",
+    "ja": "下線",
+    "ko": "밑줄",
+    "fr": "Souligné",
+    "es": "Subrayado"
+  },
+  "删除线": {
+    "en": "Strikethrough",
+    "ja": "取り消し線",
+    "ko": "취소선",
+    "fr": "Barré",
+    "es": "Tachado"
+  },
+  "引用": {
+    "en": "Blockquote",
+    "ja": "引用",
+    "ko": "인용",
+    "fr": "Citation",
+    "es": "Cita"
+  },
+  "无序列表": {
+    "en": "Bulleted list",
+    "ja": "箇条書き",
+    "ko": "글머리 기호 목록",
+    "fr": "Liste à puces",
+    "es": "Lista con viñetas"
+  },
+  "有序列表": {
+    "en": "Numbered list",
+    "ja": "番号付きリスト",
+    "ko": "번호 매기기 목록",
+    "fr": "Liste numérotée",
+    "es": "Lista numerada"
+  },
+  "插入链接": {
+    "en": "Insert link",
+    "ja": "リンク挿入",
+    "ko": "링크 삽입",
+    "fr": "Insérer un lien",
+    "es": "Insertar enlace"
+  },
+  "链接地址（URL）": {
+    "en": "Link URL",
+    "ja": "リンク URL",
+    "ko": "링크 URL",
+    "fr": "URL du lien",
+    "es": "URL del enlace"
+  },
+  "插入代码示例": {
+    "en": "Insert code sample",
+    "ja": "コードサンプル挿入",
+    "ko": "코드 샘플 삽입",
+    "fr": "Insérer un exemple de code",
+    "es": "Insertar ejemplo de código"
+  },
+  "清除格式": {
+    "en": "Clear formatting",
+    "ja": "書式クリア",
+    "ko": "서식 지우기",
+    "fr": "Effacer la mise en forme",
+    "es": "Borrar formato"
+  },
+  "撤销": {
+    "en": "Undo",
+    "ja": "元に戻す",
+    "ko": "실행 취소",
+    "fr": "Annuler",
+    "es": "Deshacer"
+  },
+  "重做": {
+    "en": "Redo",
+    "ja": "やり直す",
+    "ko": "다시 실행",
+    "fr": "Rétablir",
+    "es": "Rehacer"
+  },
+  "源码": {
+    "en": "Source",
+    "ja": "ソース",
+    "ko": "소스",
+    "fr": "Source",
+    "es": "Código"
+  },
+  "编辑 HTML 源码": {
+    "en": "Edit HTML source",
+    "ja": "HTML ソースを編集",
+    "ko": "HTML 소스 편집",
+    "fr": "Modifier la source HTML",
+    "es": "Editar código HTML"
+  },
+  "返回可视化编辑": {
+    "en": "Back to visual editing",
+    "ja": "ビジュアル編集に戻る",
+    "ko": "시각 편집으로 돌아가기",
+    "fr": "Revenir à l'édition visuelle",
+    "es": "Volver a la edición visual"
+  },
+  "插入图片": {
+    "en": "Insert image",
+    "ja": "画像の挿入",
+    "ko": "이미지 삽입",
+    "fr": "Insérer une image",
+    "es": "Insertar imagen"
+  },
+  "插入视频": {
+    "en": "Insert video",
+    "ja": "動画の挿入",
+    "ko": "동영상 삽입",
+    "fr": "Insérer une vidéo",
+    "es": "Insertar vídeo"
+  },
+  "插入表格": {
+    "en": "Insert table",
+    "ja": "表の挿入",
+    "ko": "표 삽입",
+    "fr": "Insérer un tableau",
+    "es": "Insertar tabla"
+  },
+  "字体颜色": {
+    "en": "Font color",
+    "ja": "文字色",
+    "ko": "글꼴색",
+    "fr": "Couleur du texte",
+    "es": "Color del texto"
+  },
+  "默认颜色": {
+    "en": "Default color",
+    "ja": "既定の色",
+    "ko": "기본 색",
+    "fr": "Couleur par défaut",
+    "es": "Color predeterminado"
+  },
+  "自定义颜色": {
+    "en": "Custom color",
+    "ja": "カスタム色",
+    "ko": "사용자 지정 색",
+    "fr": "Couleur personnalisée",
+    "es": "Color personalizado"
+  },
+  "本地上传": {
+    "en": "Local upload",
+    "ja": "ローカルからアップロード",
+    "ko": "로컬 업로드",
+    "fr": "Téléversement local",
+    "es": "Carga local"
+  },
+  "媒体库": {
+    "en": "Media library",
+    "ja": "メディアライブラリ",
+    "ko": "미디어 라이브러리",
+    "fr": "Médiathèque",
+    "es": "Biblioteca de medios"
+  },
+  "链接地址": {
+    "en": "Link URL",
+    "ja": "リンク URL",
+    "ko": "링크 주소",
+    "fr": "Adresse du lien",
+    "es": "Dirección del enlace"
+  },
+  "插入": {
+    "en": "Insert",
+    "ja": "挿入",
+    "ko": "삽입",
+    "fr": "Insérer",
+    "es": "Insertar"
+  },
+  "行数": {
+    "en": "Rows",
+    "ja": "行数",
+    "ko": "행 수",
+    "fr": "Lignes",
+    "es": "Filas"
+  },
+  "列数": {
+    "en": "Columns",
+    "ja": "列数",
+    "ko": "열 수",
+    "fr": "Colonnes",
+    "es": "Columnas"
+  },
+  "首行为表头": {
+    "en": "First row as header",
+    "ja": "1 行目を見出しにする",
+    "ko": "첫 행을 머리글로",
+    "fr": "Première ligne en en-tête",
+    "es": "Primera fila como encabezado"
+  },
+  "输入视频链接（http/https）": {
+    "en": "Enter video URL (http/https)",
+    "ja": "動画リンクを入力（http/https）",
+    "ko": "동영상 링크 입력 (http/https)",
+    "fr": "Saisir l'URL de la vidéo (http/https)",
+    "es": "Introducir el enlace del vídeo (http/https)"
+  },
+  "仅支持 http(s) 地址": {
+    "en": "Only http(s) URLs are supported",
+    "ja": "http(s) のみ対応しています",
+    "ko": "http(s) 주소만 지원됩니다",
+    "fr": "Seules les URL http(s) sont prises en charge",
+    "es": "Solo se admiten direcciones http(s)"
+  },
+  "支持常见图片格式，上传后自动入媒体库": {
+    "en": "Common image formats supported; uploads go to the media library",
+    "ja": "一般的な画像形式に対応。アップロード後にメディアライブラリへ保存されます",
+    "ko": "일반 이미지 형식 지원, 업로드 후 미디어 라이브러리에 저장됩니다",
+    "fr": "Formats d'image courants pris en charge ; les téléversements vont à la médiathèque",
+    "es": "Se admiten formatos de imagen comunes; las cargas van a la biblioteca de medios"
+  },
+  "支持常见视频格式，大文件自动分片上传至媒体库": {
+    "en": "Common video formats supported; large files upload in chunks",
+    "ja": "一般的な動画形式に対応。大容量ファイルは分割アップロードされます",
+    "ko": "일반 동영상 형식 지원, 대용량 파일은 분할 업로드됩니다",
+    "fr": "Formats vidéo courants pris en charge ; les gros fichiers sont téléversés par fragments",
+    "es": "Se admiten formatos de vídeo comunes; los archivos grandes se suben por partes"
+  },
+  "没有符合条件的媒体资产": {
+    "en": "No matching media assets",
+    "ja": "条件に合うメディア資産がありません",
+    "ko": "조건에 맞는 미디어 자산이 없습니다",
+    "fr": "Aucun média correspondant",
+    "es": "No hay recursos multimedia coincidentes"
+  },
+  "已上传至媒体库并插入": {
+    "en": "Uploaded to media library and inserted",
+    "ja": "メディアライブラリへ保存して挿入しました",
+    "ko": "미디어 라이브러리에 업로드되어 삽입되었습니다",
+    "fr": "Téléversé dans la médiathèque et inséré",
+    "es": "Subido a la biblioteca de medios e insertado"
+  },
+  "上传失败，请重试": {
+    "en": "Upload failed, please try again",
+    "ja": "アップロードに失敗しました。再試行してください",
+    "ko": "업로드에 실패했습니다. 다시 시도해 주세요",
+    "fr": "Échec du téléversement, veuillez réessayer",
+    "es": "Error al cargar, vuelva a intentarlo"
+  },
+  "需要站点上下文才能使用媒体库": {
+    "en": "Site context is required to use the media library",
+    "ja": "メディアライブラリの利用にはサイトコンテキストが必要です",
+    "ko": "미디어 라이브러리를 사용하려면 사이트 컨텍스트가 필요합니다",
+    "fr": "Le contexte du site est requis pour utiliser la médiathèque",
+    "es": "Se necesita el contexto del sitio para usar la biblioteca"
+  },
+  "直链视频文件（mp4/webm 等）以 <video> 插入，其余地址以 iframe 嵌入": {
+    "en": "Direct video files (mp4/webm, etc.) insert as <video>; other URLs embed via iframe",
+    "ja": "直リンク動画ファイル（mp4/webm など）は <video> で挿入、それ以外のアドレスは iframe で埋め込み",
+    "ko": "직접 연결 동영상 파일(mp4/webm 등)은 <video>로 삽입, 나머지 주소는 iframe으로 임베드",
+    "fr": "Les fichiers vidéo directs (mp4/webm, etc.) sont insérés en <video> ; les autres URL sont intégrées via iframe",
+    "es": "Los archivos de vídeo directos (mp4/webm, etc.) se insertan como <video>; el resto de direcciones se incrustan con iframe"
+  },
+  "左对齐": {
+    "en": "Align left",
+    "ja": "左揃え",
+    "ko": "왼쪽 정렬",
+    "fr": "Aligner à gauche",
+    "es": "Alinear a la izquierda"
+  },
+  "居中对齐": {
+    "en": "Align center",
+    "ja": "中央揃え",
+    "ko": "가운데 정렬",
+    "fr": "Centrer",
+    "es": "Centrar"
+  },
+  "右对齐": {
+    "en": "Align right",
+    "ja": "右揃え",
+    "ko": "오른쪽 정렬",
+    "fr": "Aligner à droite",
+    "es": "Alinear a la derecha"
+  },
+  "缩放手柄": {
+    "en": "Resize handle",
+    "ja": "サイズ変更ハンドル",
+    "ko": "크기 조절 핸들",
+    "fr": "Poignée de redimensionnement",
+    "es": "Control de redimensionamiento"
+  },
+  "表格缩放手柄": {
+    "en": "Table resize handle",
+    "ja": "表のサイズ変更ハンドル",
+    "ko": "표 크기 조절 핸들",
+    "fr": "Poignée de redimensionnement du tableau",
+    "es": "Control de redimensionamiento de la tabla"
+  }
+}

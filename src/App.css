@@ -1,0 +1,175 @@
+/* App shell — fixed sider + header; content scrolls independently */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.app-shell {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-shell-sider.ant-layout-sider {
+  height: 100vh !important;
+  max-height: 100vh;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  flex: 0 0 auto !important;
+}
+
+.app-shell-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-shell-sider-top {
+  flex-shrink: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-shell-sider-top .ant-btn {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app-shell-sider-top .ant-btn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.app-shell-brand {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-shell-menu {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-inline-end: none !important;
+}
+
+/* Collapsed sider: floating submenu flyout (Content Model children) */
+.ant-menu-dark.ant-menu-submenu-popup {
+  z-index: 1100;
+}
+
+.ant-menu-dark.ant-menu-submenu-popup > .ant-menu {
+  min-width: 180px;
+  padding: 4px 0;
+  background: #001529 !important;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.ant-menu-dark.ant-menu-submenu-popup .ant-menu-item {
+  margin: 0 !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+}
+
+.ant-menu-dark.ant-menu-submenu-popup .ant-menu-item-selected {
+  background: var(--pc-brand-primary, #1677ff) !important;
+}
+
+/* DEF-CFG-03：管理端品牌色消费点。修复前侧边栏选中态是硬编码的 #1677ff，
+   组织设置里的 backendPrimaryColor / backendSecondaryColor 改了没有任何表现。
+   变量由 AppShell 从组织设置下发（缺省时回落原有取值，默认安装外观不变）。
+   悬停态用 color-mix 取次色的半透明tint —— 与 antd 自身从品牌色派生 hover 色的做法一致，
+   避免整块高饱和背景；不支持 color-mix 的浏览器保留上方 rgba 兜底。 */
+.app-shell-menu .ant-menu-item-selected,
+.app-shell-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  background-color: var(--pc-brand-primary, #1677ff) !important;
+}
+
+.app-shell-menu .ant-menu-item:hover,
+.app-shell-menu .ant-menu-submenu-title:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: color-mix(in srgb, var(--pc-brand-secondary, #2f54eb) 35%, transparent) !important;
+}
+
+.app-shell-main {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.app-shell-header.ant-layout-header {
+  flex-shrink: 0;
+  height: 56px;
+  line-height: 1.2;
+  padding: 0 20px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: #fff;
+}
+
+.app-shell-header-left {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.app-shell-breadcrumb.ant-breadcrumb {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.app-shell-header-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-shell-site-select.ant-select {
+  min-width: 200px;
+  max-width: 280px;
+}
+
+.app-shell-header-divider {
+  width: 1px;
+  height: 24px;
+  background: #f0f0f0;
+  margin: 0 8px;
+}
+
+.app-shell-content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 24px;
+  background: #f5f5f5;
+}
+
+.app-shell-user-menu-title {
+  padding: 8px 12px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 600;
+  font-size: 13px;
+}

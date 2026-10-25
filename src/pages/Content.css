@@ -1,0 +1,680 @@
+/* 内容编辑：默认全屏 */
+.content-editor-modal-wrap {
+  overflow: hidden;
+}
+
+.content-editor-modal-wrap .ant-modal {
+  top: 0 !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.content-editor-modal-wrap .ant-modal-content {
+  border-radius: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+}
+
+.content-editor-modal-wrap .ant-modal-header {
+  flex-shrink: 0;
+  margin-bottom: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-editor-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.content-editor-header > .ant-space:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.content-editor-header > .ant-space:last-child {
+  flex-shrink: 0;
+}
+
+.content-editor-note {
+  width: 180px;
+}
+.content-editor-modal-wrap .ant-modal-body {
+  flex: 1;
+  overflow: auto;
+  padding: 12px 16px;
+  max-height: none !important;
+}
+
+/* 需求 2026-09-21：模型驱动表单（ModelFormRenderer）—— 分区卡片与页签布局 */
+.model-form-section {
+  margin-bottom: 12px;
+}
+
+.model-form-section .ant-card-head {
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.model-form-section .ant-card-head-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.model-form-tabs-card .ant-tabs-nav {
+  margin-bottom: 12px;
+}
+
+/* 列内嵌套页签组（2026-09-22：设计器单元格内嵌 TAB） */
+.model-form-cell-tabs {
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 4px 12px 0;
+  background: #fafafa;
+}
+
+.model-form-cell-tabs .ant-tabs-nav {
+  margin-bottom: 8px;
+}
+
+.model-form-tab-body {
+  padding-top: 4px;
+}
+
+
+.content-page {
+  height: calc(100vh - 104px); /* app header 56 + content padding 24*2 */
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-browse {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 280px 12px 1fr;
+  gap: 0 4px;
+  overflow: hidden;
+}
+
+.content-browse-sider {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 8px 12px 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+}
+
+.content-search-sider {
+  padding: 0;
+}
+
+.content-search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-search-header .ant-typography {
+  margin: 0;
+}
+
+.content-search-form {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+}
+
+.content-search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content-search-field > .ant-select,
+.content-search-field > .ant-input-affix-wrapper,
+.content-search-field > .ant-input {
+  width: 100%;
+}
+
+.content-search-hint {
+  font-size: 12px;
+}
+.content-search-form > .ant-btn-primary {
+  align-self: flex-start;
+  min-width: 104px;
+}
+
+.content-search-form > .ant-btn-link {
+  align-self: flex-start;
+  padding-left: 0;
+}
+.content-browse-resizer {
+  position: relative;
+  width: 12px;
+  margin: 0;
+  cursor: col-resize;
+  align-self: stretch;
+  touch-action: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-browse-resizer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: #f0f0f0;
+  transition: background 0.15s, width 0.15s;
+}
+
+.content-browse-resizer-grip {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 28px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  color: #8c8c8c;
+  font-size: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.content-browse-resizer:hover::before,
+body.content-resizing .content-browse-resizer::before {
+  width: 2px;
+  background: #1677ff;
+}
+
+.content-browse-resizer:hover .content-browse-resizer-grip,
+body.content-resizing .content-browse-resizer-grip {
+  border-color: #1677ff;
+  color: #1677ff;
+  box-shadow: 0 1px 4px rgba(22, 119, 255, 0.2);
+}
+
+body.content-resizing {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+body.content-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+.content-side-tabs {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-side-tabs > .ant-tabs-nav {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.content-sider-collapse-btn {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.content-sider-collapse-btn:hover {
+  color: #1677ff !important;
+}
+
+.content-sider-collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 4px;
+  height: 100%;
+}
+
+.content-sider-collapsed[hidden] {
+  display: none !important;
+}
+
+.content-sider-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.content-sider-body[hidden] {
+  display: none !important;
+}
+
+.content-sider-collapsed .ant-btn {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.content-sider-collapsed .ant-btn.is-active,
+.content-sider-collapsed .ant-btn:hover {
+  color: #1677ff !important;
+  background: #e6f4ff !important;
+}
+
+.content-browse.is-sider-collapsed .content-browse-sider {
+  padding: 8px 4px;
+}
+
+.content-side-tabs > .ant-tabs-content-holder {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.content-side-tabs .ant-tabs-content {
+  height: 100%;
+}
+
+.content-side-tabs .ant-tabs-tabpane {
+  height: 100%;
+}
+
+.content-side-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.content-side-search {
+  flex-shrink: 0;
+  margin-bottom: 12px;
+}
+
+.content-side-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.content-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.content-model-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.content-model-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.content-model-item.is-active {
+  background: #e6f4ff;
+}
+
+.content-model-item-icon {
+  flex-shrink: 0;
+  color: #8c8c8c;
+}
+
+.content-model-item-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.content-model-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.content-model-item-code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.content-model-item-status {
+  flex-shrink: 0;
+  margin: 0 !important;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+/* Tree node: single-line title; path never wraps vertically */
+.content-browse-sider .ant-tree-treenode {
+  width: 100%;
+}
+
+.content-browse-sider .ant-tree-node-content-wrapper {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.content-browse-sider .ant-tree-title {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.content-tree-node {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  height: 24px;
+}
+
+.content-tree-node-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.content-tree-node-icon {
+  flex-shrink: 0;
+  color: #8c8c8c;
+}
+
+.content-tree-node-label {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.content-tree-node-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.content-tree-node-path {
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 48%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.content-tree-node-more {
+  flex-shrink: 0;
+}
+
+.content-browse-main {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px 16px;
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-browse-main > .ant-space {
+  flex-shrink: 0;
+}
+
+.content-browse-table {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+
+.content-browse-table .ant-table-pagination {
+  margin-bottom: 0;
+}
+
+.content-browse-table .ant-table-cell-fix-right {
+  background: #fff;
+}
+
+.content-browse-table .ant-table-tbody > tr.ant-table-row:hover > .ant-table-cell-fix-right,
+.content-browse-table .ant-table-tbody > tr > .ant-table-cell-fix-right.ant-table-cell-row-hover {
+  background: #fafafa;
+}
+
+/* 内容/页面列表的缩略图视图：无预览图的条目由默认图片兜底（见 ContentPreviewImage）。 */
+.content-thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.content-thumb-card .ant-card-cover {
+  overflow: hidden;
+}
+
+.content-thumb-card.is-selected {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.12);
+}
+
+.content-thumb-cover {
+  position: relative;
+}
+
+.content-thumb-cover .content-thumb-select {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 4px;
+}
+
+/* 内容/页面列表的列表视图：与媒体库保持一致的行高与对齐。 */
+.content-list-view .ant-list-item {
+  align-items: flex-start;
+  padding-inline: 12px;
+}
+
+.content-list-view .ant-list-item-action {
+  margin-inline-start: 12px;
+}
+
+.content-table-actions-col {
+  padding-inline: 8px !important;
+}
+
+.content-table-actions .ant-btn {
+  width: 28px;
+  padding-inline: 0;
+}
+
+.content-status-col {
+  padding-inline: 4px !important;
+}
+
+.content-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+}
+
+.content-model-col,
+.content-version-col {
+  overflow: hidden;
+}
+
+.content-model-tags {
+  display: inline-flex;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.content-model-tag {
+  max-width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-inline-end: 0;
+}
+
+.content-version-col {
+  white-space: nowrap;
+}
+
+.content-list-breadcrumb {
+  font-size: 14px;
+  line-height: 32px;
+  max-width: min(100%, 720px);
+}
+
+.content-crumb-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.content-crumb-home:hover {
+  color: #1677ff;
+}
+
+.content-crumb-current {
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 500;
+}
+
+.content-status-bar {
+  flex-shrink: 0;
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.content-repeat-group {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.content-repeat-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.content-repeat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content-repeat-item {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fafafa;
+}
+
+.content-repeat-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 960px) {
+  .content-page {
+    height: auto;
+    min-height: calc(100vh - 104px);
+  }
+
+  .content-browse {
+    grid-template-columns: 1fr !important;
+    height: auto;
+    overflow: visible;
+  }
+
+  .content-browse-sider {
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .content-browse-resizer {
+    display: none;
+  }
+
+  .content-browse-main {
+    height: auto;
+  }
+}

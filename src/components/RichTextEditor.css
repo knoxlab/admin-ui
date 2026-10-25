@@ -1,0 +1,115 @@
+/* 富文本编辑器（RichTextEditor）容器与工具栏样式。
+   走 antd Token 深浅色都能接受的中性色，不引第三方编辑器样式。 */
+.rich-text-editor {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.rich-text-editor:focus-within {
+  border-color: #1677ff;
+}
+.rich-text-disabled {
+  background: #f5f5f5;
+}
+.rich-text-toolbar {
+  padding: 4px 6px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+.rich-text-canvas {
+  padding: 8px 12px;
+  overflow-y: auto;
+  outline: none;
+  line-height: 1.7;
+  word-break: break-word;
+}
+/* 编辑区内常用元素的还原样式（浏览器默认 contentEditable 样式较粗糙） */
+.rich-text-canvas blockquote {
+  margin: 4px 0;
+  padding: 2px 12px;
+  border-left: 3px solid #d9d9d9;
+  color: #595959;
+}
+.rich-text-canvas pre {
+  background: #f6f6f6;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+.rich-text-canvas pre:empty::after,
+.rich-text-canvas code:empty::after {
+  content: '';
+}
+.rich-text-canvas a {
+  color: #1677ff;
+}
+.rich-text-canvas img {
+  max-width: 100%;
+}
+/* 表格：插入即带框线；无内联样式的粘贴/存量表在编辑区内同样可见 */
+.rich-text-canvas table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 4px 0;
+}
+.rich-text-canvas table th,
+.rich-text-canvas table td {
+  border: 1px solid #d9d9d9;
+  padding: 4px 8px;
+  min-width: 2em;
+  /* 空单元格无 <br> 占位时也留出行高点击区（height 于 td 即 min-height） */
+  height: 1.9em;
+}
+.rich-text-canvas table th {
+  background: #fafafa;
+}
+
+/* ---- 对象选中 / 拖拽缩放叠加层（渲染于 contenteditable 之外） ---- */
+.rich-text-canvas-wrap {
+  position: relative;
+}
+.rte-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.rte-obj-frame {
+  position: absolute;
+  outline: 1.5px solid #1677ff;
+  pointer-events: none;
+}
+.rte-handle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1.5px solid #1677ff;
+  border-radius: 2px;
+  pointer-events: auto;
+}
+.rte-handle-nw,
+.rte-handle-se {
+  cursor: nwse-resize;
+}
+.rte-handle-ne,
+.rte-handle-sw {
+  cursor: nesw-resize;
+}
+.rte-table-handle {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  background: #1677ff;
+  cursor: nwse-resize;
+}
+.rich-text-code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+}
