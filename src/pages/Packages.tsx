@@ -6,7 +6,7 @@ import { DownloadOutlined, UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { packagesApi } from '../api';
 import type { SitePackage, SitePackagePrecheckReport, SitePackageSignatureInfo } from '../api/types';
-import { RequireSite, useSite } from '../context/SiteContext';
+import { useSite } from '../context/SiteContext';
 import { isSystemAdmin, useAuth } from '../auth/AuthContext';
 import { t } from '../i18n/locale';
 import { PageHintAlert, PageHintRestore, usePageHint } from '../components/PageHint';
@@ -273,6 +273,11 @@ function PackagesInner() {
   );
 }
 
+/**
+ * 站点包页**不套 RequireSite**：导入包正是「尚无站点」时创建首个站点的入口，
+ * 套上会变成鸡生蛋——列表为空时反而看不到导入按钮。
+ * 仅「导出当前站点」需要 siteId，按钮已按 `!siteId` 禁用。
+ */
 export default function PackagesPage() {
-  return <RequireSite><PackagesInner /></RequireSite>;
+  return <PackagesInner />;
 }
